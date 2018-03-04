@@ -1,0 +1,18 @@
+<h1><%= @tutorial.tutorial_name %></h1>
+
+<h2><%= "Reviews" %></h2>
+
+<% if @related_reviews.any? %>
+  <% @related_reviews.each do |rr| %>
+    <br><%= rr.tutorial_name %></br>
+    <br><%= rr.tutorial_score %></br>
+    <br><%= rr.tutorial_comment %></br>
+    <br><%= rr.created_at %></br>
+  <% end %>
+  <% else %>
+    <%= "There are no reviews related to this tutorial" %>
+<% end %>
+
+<br><%= link_to "Create another review for this tutorial", new_review_path %></br>
+
+<br><%= link_to "Back to tutorials", tutorials_path %></br>

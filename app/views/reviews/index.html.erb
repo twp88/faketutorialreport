@@ -1,1 +1,10 @@
-<%= @reviews %>
+<% if @reviews.any? %>
+  <% @reviews.each do |r| %>
+      <br><%= r.tutorial_name %></br>
+      <br><%= r.tutorial_score %></br>
+      <br><%= r.tutorial_comment %></br>
+      <br><%= r.created_at %></br>
+    <% end %>
+  <% else %>
+    <%= "There are no reviews for this tutorial yet" %>
+<% end %>

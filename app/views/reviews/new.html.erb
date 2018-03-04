@@ -1,0 +1,9 @@
+<%= form_for @review do |f| %>
+  <%= f.label :tutorial_name %>
+  <%= f.text_field :tutorial_name %>
+  <%= f.label :tutorial_score %>
+  <%= f.text_field :tutorial_score %>
+  <%= f.label :tutorial_comment %>
+  <%= f.text_field :tutorial_comment %>
+  <%= f.submit %>
+<% end %>

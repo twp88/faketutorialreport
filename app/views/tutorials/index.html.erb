@@ -1,0 +1,9 @@
+<h1><%= "All the tutorials" %></h1> 
+
+<% if @tutorials.any? %>
+  <% @tutorials.each do |r| %>
+      <br><%= link_to "#{r.tutorial_name}", tutorial_path(r.id) %></br>
+    <% end %>
+  <% else %>
+    <%= "There are currently no listed tutorials" %>
+<% end %>
