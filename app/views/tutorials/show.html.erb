@@ -1,12 +1,24 @@
+<br><h2><%= "Here is the tutorial profile page with all of the information" %></h2></br>
+
 <h1><%= @tutorial.tutorial_name %></h1>
+
+<h2><%= "Tutorial description" %></h2>
+<h3><%= @tutorial.tutorial_description %></h3>
+
+<h2><%="Tutorial average score"%></h2>
+<h3><%= @tutorial.tutorial_average_score %></h3>
 
 <h2><%= "Reviews" %></h2>
 
 <% if @related_reviews.any? %>
   <% @related_reviews.each do |rr| %>
+    <br><h3><%= "Tutorial Name" %></h3></br>
     <br><%= rr.tutorial_name %></br>
+    <br><h3><%= "User score for this tutorial" %></h3></br>
     <br><%= rr.tutorial_score %></br>
+    <br><h3><%= "User Comment" %></h3></br>
     <br><%= rr.tutorial_comment %></br>
+    <br><h3><%= "Commented on this day" %></h3></br>
     <br><%= rr.created_at %></br>
   <% end %>
   <% else %>
