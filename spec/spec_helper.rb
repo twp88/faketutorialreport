@@ -93,6 +93,6 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
-  require_relative '../app/controllers/tutorials_controller.rb'
+  # require_relative '../app/controllers/tutorials_controller.rb'
   require_relative '../app/services/average_score_service.rb'
 end
