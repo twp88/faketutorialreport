@@ -3,25 +3,26 @@ require 'rails_helper'
 describe AverageScoreService do
   subject { AverageScoreService.new(tutorial) }
 
-  let(:tutorial_review_average) { 6 }
+  let(:tutorial_review_average) { 8 }
 
   let(:tutorial) { create(:tutorial, :standard_tutorial) }
   let(:second_tutorial) { create(:tutorial, :standard_tutorial) }
 
-  let(:first_review) { create(
+  let!(:first_review) { create(
                               :review,
                               :standard_review,
                               tutorial_id: tutorial.id
                               )}
-  let(:second_review) { create(
+  let!(:second_review) { create(
                               :review,
                               :standard_review,
                               tutorial_id: tutorial.id
                               ) }
-  let(:third_review) { create(
+  let!(:third_review) { create(
                               :review,
                               :standard_review,
-                              tutorial_id: tutorial.id
+                              tutorial_id: tutorial.id,
+                              tutorial_score: 6
                               ) }
   let(:other_review) { create(
                               :review,
@@ -31,7 +32,7 @@ describe AverageScoreService do
 
   context 'when called' do
     it 'collects all of the scores for one tutorial' do
-      expect(subject.call).to_eq tutorial_review_average
+      expect(subject.call).to eq tutorial_review_average
     end
   end
 end

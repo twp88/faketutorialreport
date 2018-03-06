@@ -1,3 +1,23 @@
 class AverageScoreService
+  def initialize(tutorial)
+    @tutorial = tutorial
+  end
 
+  def call
+    divide_scores
+  end
+
+  private
+
+  def collect_scores
+    Review.where(tutorial_id: @tutorial.id).collect(&:tutorial_score)
+  end
+
+  def sum_scores
+    collect_scores.inject(0){ |sum, x| sum + x }
+  end
+
+  def divide_scores
+    sum_scores / collect_scores.length
+  end
 end
