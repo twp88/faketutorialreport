@@ -8,27 +8,35 @@ describe AverageScoreService do
   let(:tutorial) { create(:tutorial, :standard_tutorial) }
   let(:second_tutorial) { create(:tutorial, :standard_tutorial) }
 
-  let!(:first_review) { create(
-                              :review,
-                              :standard_review,
-                              tutorial_id: tutorial.id
-                              )}
-  let!(:second_review) { create(
-                              :review,
-                              :standard_review,
-                              tutorial_id: tutorial.id
-                              ) }
-  let!(:third_review) { create(
-                              :review,
-                              :standard_review,
-                              tutorial_id: tutorial.id,
-                              tutorial_score: 6
-                              ) }
-  let(:other_review) { create(
-                              :review,
-                              :standard_review,
-                              tutorial_id: second_tutorial.id
-                              ) }
+  let!(:first_review) do
+    create(
+      :review,
+      :standard_review,
+      tutorial_id: tutorial.id
+    )
+  end
+  let!(:second_review) do
+    create(
+      :review,
+      :standard_review,
+      tutorial_id: tutorial.id
+    )
+  end
+  let!(:third_review) do
+    create(
+      :review,
+      :standard_review,
+      tutorial_id: tutorial.id,
+      tutorial_score: 6
+    )
+  end
+  let(:other_review) do
+    create(
+      :review,
+      :standard_review,
+      tutorial_id: second_tutorial.id
+    )
+  end
 
   context 'when called' do
     it 'collects all of the scores for one tutorial' do
