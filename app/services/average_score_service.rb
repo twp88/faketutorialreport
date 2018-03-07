@@ -14,10 +14,14 @@ class AverageScoreService
   end
 
   def sum_scores
-    collect_scores.inject(0){ |sum, x| sum + x }
+    collect_scores.inject(0) { |sum, x| sum + x }
   end
 
   def divide_scores
-    sum_scores / collect_scores.length
+    if sum_scores.nil? || collect_scores.empty?
+      0
+    else
+      sum_scores / collect_scores.length
+    end
   end
 end
